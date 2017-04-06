@@ -1,6 +1,6 @@
 //backend
-var playerOne;
-var playerTwo;
+var playerOne = new Player;
+var playerTwo ;
 var activePlayer = true;
 playerOne = activePlayer;
 
@@ -12,10 +12,19 @@ playerOne = activePlayer;
 //   }
 // }
 
- function Player(roundScore, totalScore, playerTurn){
+ function Player(roundScore, totalScore){
   this.roundScore = round;
   this.totalScore = total;
-  this.playerTurn =turn;
+  //this.playerTurn = turn;
+}
+
+ Player.prototype.playerTurn = function(){
+  if (roundScore === 1 ) {
+    return
+
+  }
+
+
 }
 
  // var roundScore = 0;
@@ -75,10 +84,13 @@ playerOne = activePlayer;
      //alert ("Hold. Score is " + totalScore);
     //  whoIsOnFirst();
     //  var active = whoIsOnFirst();
-      playerTwo = activePlayer;
-      roundScore = 0;
-      $("#user1-round").text(roundScore);
-      alert(playerTwo);
+      if (playerOne = activePlayer) {
+        roundScore = 0;
+        $("#user1-round").text(roundScore);
+        alert(playerTwo);
+
+      }
+
 
   }
 

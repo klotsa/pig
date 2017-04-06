@@ -1,68 +1,81 @@
 //backend
+
 var playerOne;
+playerOne = new Player(0, 0);
 var playerTwo;
-var activePlayer = true;
-playerOne = activePlayer;
+playerTwo = new Player(0, 0);
+// playerOne = true;
 
-// function whoIsOnFirst() {
-//   if (playerOne === true) {
-//     playerOne = activePlayer;
-//   } else {
-//     playerTwo = activePlayer;
-//   }
-// }
-
- function Player(roundScore, totalScore, playerTurn){
-  this.roundScore = round;
-  this.totalScore = total;
-  this.playerTurn = turn;
+ function Player(roundScore, totalScore) {
+  this.roundScore = roundScore;
+  this.totalScore = totalScore;
 }
 
-// Player.prototype.playerTurn() {
-//
-// }
 
+ var oneTotalScore = 0;
+ var twoTotalScore = 0;
 
- // var roundScore = 0;
- var totalScore = 0;
- var playerOneTotal = 0;
- var playerTwoTotal = 0;
-
- function roll() {
-   var roundScore = 0;
+ function rollOne() {
+   var roundScoreOne = 0;
    randomNumber();
     // alert("in roll");
      var random = randomNumber();
   //   alert("random # in roll: " + random);
      if (random !==1) {
     //   alert("over 1");
-       roundScore += random;
+       roundScoreOne += random;
     //   alert("roundScore: " + roundScore);
-       totalScore += roundScore;
-       $("#user1-round").text(roundScore);
-       $("#user1-total").text(totalScore);
+       oneTotalScore += roundScoreOne;
+       $("#user1-round").text(roundScoreOne);
+       $("#user1-total").text(oneTotalScore);
      } else {
-       alert("you lost your turn");
-       roundScore = 0;
-    //   alert("roundScore: " + roundScore);
-       totalScore += roundScore;
-       $("#user1-round").text(roundScore);
-       $("#user1-total").text(totalScore);
+       alert("Player 2 it's your turn");
+    //    roundScore += random;
+
      }
-     if(totalScore >= 20)
-     alert("Congrats you won!")
+     if(oneTotalScore >= 20) {
+     alert("Congrats, Player 1 you won!")
+     }
+ }
+ function rollTwo() {
+   var roundScoreTwo = 0;
+   randomNumber();
+    // alert("in roll");
+     var random = randomNumber();
+  //   alert("random # in roll: " + random);
+     if (random !==1) {
+    //   alert("over 1");
+       roundScoreTwo += random;
+    //   alert("roundScore: " + roundScore);
+       twoTotalScore += roundScoreTwo;
+       $("#user2-round").text(roundScoreTwo);
+       $("#user2-total").text(twoTotalScore);
+     } else {
+       alert("Player 1 it's your turn");
+       roundScoreTwo += random;
+
+     }
+
+    if (twoTotalScore >=20) {
+     alert("Congrats, Player 2 you won!")
+     }
  }
 
-  function hold() {
-    //var score = roll += roundScore;
-     //alert ("Hold. Score is " + totalScore);
-    //  whoIsOnFirst();
-    //  var active = whoIsOnFirst();
-      playerTwo = activePlayer;
-      roundScore = 0;
-      $("#user1-round").text(roundScore);
-      alert(playerTwo);
-  }
+
+  function holdOne() {
+      var roundScoreOne = 0;
+      oneTotalScore += roundScoreOne;
+
+    //  $("#user1-round").text(roundScoreOne);
+
+    };
+
+  function holdTwo() {
+        roundScoreTwo = 0;
+        twoTotalScore += roundScore;
+
+      //  $("#user2-round").text(roundScoreTwo);
+    };
 
   //randomizer
   function randomNumber() {
@@ -71,22 +84,25 @@ playerOne = activePlayer;
     console.log(random);
     //alert("in random");
     return(random);
-
 }
-
 
 //ui
 $(document).ready(function(){
-   $("#roll").click(function(){
+
+   $("#rollOne").click(function(){
      event.preventDefault();
-     roll();
+     rollOne();
    });
-   $("#hold").click(function(){
-     hold();
+   $("#holdOne").click(function(){
+     event.preventDefault();
+     holdOne();
    });
-  //  $("#random").click(function(){
-  //    event.preventDefault();
-  //   //  alert("!");
-  //    randomNumber();
-  //  });
+   $("#rollTwo").click(function(){
+     event.preventDefault();
+   rollTwo();
+   });
+   $("#holdTwo").click(function(){
+     event.preventDefault();
+   holdTwo();
+   });
 });
