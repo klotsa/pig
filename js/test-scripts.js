@@ -15,13 +15,8 @@ playerOne = activePlayer;
  function Player(roundScore, totalScore, playerTurn){
   this.roundScore = round;
   this.totalScore = total;
-  this.playerTurn = turn;
+  this.playerTurn =turn;
 }
-
-// Player.prototype.playerTurn() {
-//
-// }
-
 
  // var roundScore = 0;
  var totalScore = 0;
@@ -34,25 +29,47 @@ playerOne = activePlayer;
     // alert("in roll");
      var random = randomNumber();
   //   alert("random # in roll: " + random);
+
+    if (playerOne = activePlayer) {
      if (random !==1) {
     //   alert("over 1");
        roundScore += random;
     //   alert("roundScore: " + roundScore);
-       totalScore += roundScore;
+       playerOneTotal += roundScore;
        $("#user1-round").text(roundScore);
-       $("#user1-total").text(totalScore);
+       $("#user1-total").text(playerOneTotal);
      } else {
        alert("you lost your turn");
        roundScore = 0;
+       hold();
     //   alert("roundScore: " + roundScore);
-       totalScore += roundScore;
+       playerOneTotal += roundScore;
        $("#user1-round").text(roundScore);
-       $("#user1-total").text(totalScore);
+       $("#user1-total").text(playerOneTotal);
      }
-     if(totalScore >= 20)
+     if(playerOneTotal >= 20)
      alert("Congrats you won!")
- }
+ } else {
+   if (random !==1) {
+ //   alert("over 1");
+    roundScore += random;
+ //   alert("roundScore: " + roundScore);
+    playerTwoTotal += roundScore;
+    $("#user2-round").text(roundScore);
+    $("#user2-total").text(playerTwoTotal);
+  } else {
+    alert("you lost your turn");
+    roundScore = 0;
+ //   alert("roundScore: " + roundScore);
+    playerOneTotal += roundScore;
+    $("#user2-round").text(roundScore);
+    $("#user2-total").text(playerTwoTotal);
+  }
+  if(playerOneTotal >= 20)
+  alert("Congrats you won!")
 
+ }
+}
   function hold() {
     //var score = roll += roundScore;
      //alert ("Hold. Score is " + totalScore);
@@ -62,6 +79,7 @@ playerOne = activePlayer;
       roundScore = 0;
       $("#user1-round").text(roundScore);
       alert(playerTwo);
+
   }
 
   //randomizer
