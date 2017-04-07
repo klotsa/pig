@@ -9,26 +9,43 @@
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h1>Game of a lifetime!</h1>
+        <h1>Pig Dice<h1>
+        <h3>Game of a lifetime!</h3>
       </div>
+      <form id="form-one">
+        <div class="form-group">
+             <label for="name1">Player 1, enter your name</label>
+             <input type="text" class="form-control" id="name1">
+         </div>
+       <div class="form-group">
+            <label for="name2">Player 2, enter your name</label>
+            <input type="text" class="form-control" id="name2">
+        </div>
+
+      <button type="submit" class="btn">add</button>
+      </form>
       <div class="row">
         <div class="col-md-6">
-          <!-- <form id=form-one> -->
-            <h1 id="user-result"></h1>
-            <h1>Player 1 total: <span id="user1-total"></span></h1>
-            <h1>Player 1 round: <span id="user1-round"></span></h1>
-            <button type="click" id="rollOne">Roll</button>
-            <button type="click" id="holdOne">Hold</button>
+            <h1 id="player1">Player 1</h1>
+            <h1 id="player1name">Player 1</h1>
+            <h2>Total: <span id="user1-total"></span></h2>
+            <h2>Round: <span id="user1-round"></span></h2>
+            <button type="click" id="rollOne" class="btn bg-success">Roll</button>
+            <button type="click" id="holdOne" class="btn bg-danger">Hold</button>
 
           <!-- </form> -->
         </div>
         <div class="col-md-6">
+          <div id="dice"></div>
+        </div>
+        <div class="col-md-4">
           <!-- <form id=form-one> -->
             <h1 id="user-result"></h1>
-            <h1>Player 2 total: <span id="user2-total"></span></h1>
-            <h1>Player 2 round: <span id="user2-round"></span></h1>
-            <button type="click" id="rollTwo">Roll</button>
-            <button type="click" id="holdTwo">Hold</button>
+            <h1>Player 2</h1>
+            <h2>Total: <span id="user2-total"></span></h2>
+            <h2>Round: <span id="user2-round"></span></h2>
+            <button type="click" id="rollTwo" class="btn bg-success">Roll</button>
+            <button type="click" id="holdTwo" class="btn bg-danger">Hold</button>
 
           <!-- </form> -->
         </div>

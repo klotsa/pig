@@ -1,16 +1,21 @@
 //backend
-
-var playerOne;
-playerOne = new Player(0, 0);
-var playerTwo;
-playerTwo = new Player(0, 0);
+//
+// var playerOne;
+// playerOne = new Player(0, 0);
+// var playerTwo;
+// playerTwo = new Player(0, 0);
 // playerOne = true;
+//
+//  function Player(roundScore, totalScore) {
+//   this.roundScore = roundScore;
+//   this.totalScore = totalScore;
+// }
 
- function Player(roundScore, totalScore) {
-  this.roundScore = roundScore;
-  this.totalScore = totalScore;
-}
-
+// function Name (name) {
+//   this.playerName = name;
+// }
+//
+// var newName = new Name(inputNameOne, inputNameOne);
 
  var oneTotalScore = 0;
  var twoTotalScore = 0;
@@ -30,10 +35,9 @@ playerTwo = new Player(0, 0);
        $("#user1-total").text(oneTotalScore);
      } else {
        alert("Player 2 it's your turn");
-    //    roundScore += random;
-
+       clearRoundScoreTwo();
      }
-     if(oneTotalScore >= 20) {
+     if(oneTotalScore >= 100) {
      alert("Congrats, Player 1 you won!")
      }
  }
@@ -53,29 +57,37 @@ playerTwo = new Player(0, 0);
      } else {
        alert("Player 1 it's your turn");
        roundScoreTwo += random;
+       clearRoundScoreOne();
 
      }
 
-    if (twoTotalScore >=20) {
+    if (twoTotalScore >=100) {
      alert("Congrats, Player 2 you won!")
      }
  }
 
-
   function holdOne() {
       var roundScoreOne = 0;
       oneTotalScore += roundScoreOne;
-
-    //  $("#user1-round").text(roundScoreOne);
+     clearRoundScoreOne();
 
     };
 
   function holdTwo() {
-        roundScoreTwo = 0;
-        twoTotalScore += roundScore;
-
-      //  $("#user2-round").text(roundScoreTwo);
+        var roundScoreTwo = 0;
+        twoTotalScore += roundScoreTwo;
+        clearRoundScoreTwo();
     };
+
+    function clearRoundScoreOne() {
+       $("#user1-round").text("0");
+
+    };
+
+    function clearRoundScoreTwo() {
+       $("#user2-round").text("0");
+    };
+
 
   //randomizer
   function randomNumber() {
@@ -83,12 +95,28 @@ playerTwo = new Player(0, 0);
     var random =  Math.floor((Math.random()* 6) +1);
     console.log(random);
     //alert("in random");
+    // if (random = 1) {
+    //   $("#dice")
+    // }
     return(random);
 }
 
-//ui
+//UI
 $(document).ready(function(){
+   $("form#form-one").submit(function(event) {
+     event.preventDefault();
+    var inputNameOne = $("#name1").val();
+    var inputNameTwo = $("#name2").val();
 
+    $("#form-one").hide();
+    // alert(inputNameOne);
+    // alert(inputNameTwo);
+    $("#player1").hide();
+    $("#player1name").show(inputNameOne);
+
+
+
+  });
    $("#rollOne").click(function(){
      event.preventDefault();
      rollOne();

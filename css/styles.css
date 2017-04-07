@@ -1,0 +1,9 @@
+.jumbotron, .col-md-4 {
+  text-align: center;
+}
+
+.btn {
+  font-size: 1s.5em;
+  padding: 20px;
+  margin: 20px;
+}
