@@ -1,9 +1,23 @@
-.jumbotron, .col-md-4 {
+.jumbotron, .col-md-6, .btn, #form-one {
   text-align: center;
 }
 
 .btn {
-  font-size: 1s.5em;
+  font-size: 1.5em;
   padding: 20px;
   margin: 20px;
+  width: 100px;
+
+}
+
+
+#win {
+
+ display: none;
+}
+
+img {
+
+  display: block;
+  margin: auto;
 }

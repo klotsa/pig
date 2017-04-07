@@ -11,16 +11,18 @@
 //   this.totalScore = totalScore;
 // }
 
-// function Name (name) {
+// function Name (newName1, newName2) {
 //   this.playerName = name;
 // }
 //
-// var newName = new Name(inputNameOne, inputNameOne);
+// var newName1 = new Name(inputNameOne);
+// var newName2 = new Name(inputNameTwo);
 
  var oneTotalScore = 0;
  var twoTotalScore = 0;
 
  function rollOne() {
+
    var roundScoreOne = 0;
    randomNumber();
     // alert("in roll");
@@ -35,10 +37,11 @@
        $("#user1-total").text(oneTotalScore);
      } else {
        alert("Player 2 it's your turn");
-       clearRoundScoreTwo();
+       clearRoundScoreOne();
      }
      if(oneTotalScore >= 100) {
-     alert("Congrats, Player 1 you won!")
+     alert("Congrats, you won!");
+     $("#win").show();
      }
  }
  function rollTwo() {
@@ -57,19 +60,20 @@
      } else {
        alert("Player 1 it's your turn");
        roundScoreTwo += random;
-       clearRoundScoreOne();
+       clearRoundScoreTwo();
 
      }
 
     if (twoTotalScore >=100) {
-     alert("Congrats, Player 2 you won!")
-     }
- }
+      alert("Congrats, you won!");
+      $("#win").show();
+    }
+}
 
   function holdOne() {
       var roundScoreOne = 0;
       oneTotalScore += roundScoreOne;
-     clearRoundScoreOne();
+      clearRoundScoreOne();
 
     };
 
@@ -105,15 +109,19 @@
 $(document).ready(function(){
    $("form#form-one").submit(function(event) {
      event.preventDefault();
-    var inputNameOne = $("#name1").val();
-    var inputNameTwo = $("#name2").val();
-
+     var inputNameOne = $("#name1").val();
+     var inputNameTwo = $("#name2").val();
+     var newName1 = inputNameOne;
+     var newName2 = inputNameTwo;
     $("#form-one").hide();
     // alert(inputNameOne);
     // alert(inputNameTwo);
     $("#player1").hide();
-    $("#player1name").show(inputNameOne);
-
+    $("#player1name").show();
+    $("#player1name").text(inputNameOne);
+    $("#player2").hide();
+    $("#player2name").show();
+    $("#player2name").text(inputNameTwo);
 
 
   });
